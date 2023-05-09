@@ -55,6 +55,17 @@ def quartile(data):
         sorted_data = sorted(data)
         q2 = median(sorted_data)
         if n % 2 == 1:
+            """
+            `sorted_data[n // 2 + 1:]` 表示从索引 `n // 2 + 1` 开始到数据集末尾的子集。
+
+            让我们解释一下这个表达式的不同部分：
+            - `n // 2` 表示整数除法运算，得到 `n` 的一半。如果 `n` 是奇数，这将返回小于 `n` 的最大整数，如果 `n` 是偶数，这将返回 `n` 的一半。
+            - `+ 1` 表示在 `n // 2` 的基础上再加 1，即下一个索引位置。
+            - `sorted_data[n // 2 + 1:]` 表示从索引 `n // 2 + 1` 开始到数据集末尾的子集，包括索引 `n // 2 + 1` 的元素。
+
+            冒号表示一个切片操作（slicing operation），用于从一个可迭代对象（例如列表、字符串等）中选择一部分元素。
+            切片操作的一般形式是 `start:end:step`，其中 `start` 表示起始位置（默认为 0），`end` 表示结束位置（但不包括该位置的元素），`step` 表示步长（默认为 1）。
+            """
             q1 = median(sorted_data[:n // 2])
             q3 = median(sorted_data[n // 2 + 1:])
         else:
